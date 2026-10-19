@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloxy Cola Clicker</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .cola-button {
+            cursor: pointer;
+            transition: transform 0.1s ease;
+            max-width: 80%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        .cola-button:active {
+            transform: scale(0.92);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Картинка Блокси Колы -->
+    <img src="https://rbxcdn.com" alt="Bloxy Cola" class="cola-button" id="colaImg">
+
+    <!-- Звук питья -->
+    <audio id="colaSound" src="https://myinstants.com" preload="auto"></audio>
+
+    <script>
+        const img = document.getElementById('colaImg');
+        const sound = document.getElementById('colaSound');
+
+        img.addEventListener('click', () => {
+            sound.currentTime = 0; // Сбрасываем звук на начало, чтобы можно было спамить кликами
+            sound.play().catch(e => console.log("Ожидание действия пользователя для воспроизведения звука"));
+        });
+    </script>
+</body>
+</html>
+
